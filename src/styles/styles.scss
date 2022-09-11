@@ -1,0 +1,76 @@
+@import "./font.scss";
+@import "./global.scss";
+@import "./variables.scss";
+@import "./components/header.scss";
+@import "./components/main.scss";
+@import "./components/footer.scss";
+@import "./components/cities.scss";
+@import "./components/product.scss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "@fortawesome/fontawesome-free/css/v4-shims.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope";
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  color: $white;
+  font-size: 14px;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $dark-blue;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $blue;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $blue-1;
+  }
+  background: rgb(23, 20, 48);
+  background: -moz-linear-gradient(90deg, $dark-blue 0%, $dark-blue-1 100%);
+  background: -webkit-linear-gradient(90deg, $dark-blue 0%, $dark-blue-1 100%);
+  background: linear-gradient(90deg, $dark-blue 0%, $dark-blue-1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#171430",endColorstr="#3b337b",GradientType=1);
+
+  header,
+  main,
+  footer {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  header {
+    margin-top: 20px;
+  }
+
+  footer {
+    margin-bottom: 20px;
+  }
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  all: unset;
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+}
