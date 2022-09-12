@@ -1,4 +1,12 @@
 @font-face {
+  font-family: "Akira";
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Akira"),
+    url("../assets/font/fonts/otf/Akira.otf") format("opentype");
+}
+
+@font-face {
   font-family: "Manrope";
   font-weight: 100;
   font-display: auto;

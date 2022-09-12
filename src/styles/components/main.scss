@@ -1,0 +1,71 @@
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &-subtitle {
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    margin-top: 16px;
+  }
+  #cursor-image {
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    width: 100px;
+    opacity: 0.6;
+    transform: rotate(-80deg);
+    animation: MoveUpDown 1s ease-in-out infinite;
+  }
+  .scrolling-words {
+    &-container {
+      font-family: "Akira";
+      font-size: 4vw;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      margin-bottom: 3vh;
+    }
+    &-box {
+      height: 3rem;
+      margin: auto;
+      overflow: hidden;
+
+      ul {
+        margin: 0 0.625rem;
+        padding: 0;
+        animation: scrollUp 5s infinite;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          height: 3rem;
+          list-style: none;
+        }
+      }
+    }
+  }
+
+  $item-count: 5;
+
+  @keyframes scrollUp {
+    @for $i from 1 through ($item-count - 1) {
+      #{($i * 25) - 10%},
+      #{$i * 25%} {
+        transform: translateY((-100% / $item-count) * $i);
+      }
+    }
+  }
+
+  @keyframes MoveUpDown {
+    0%, 100% {
+      right: 16.5vw;
+      top: 48vh;
+    }
+    50% {
+      right: 17vw;
+      top: 47.5vh;
+    }
+  }
+}

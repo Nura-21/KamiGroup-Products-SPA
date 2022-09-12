@@ -1,6 +1,7 @@
 @import "./font.scss";
 @import "./global.scss";
 @import "./variables.scss";
+@import "./animations.scss";
 @import "./components/header.scss";
 @import "./components/main.scss";
 @import "./components/footer.scss";
@@ -44,8 +45,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#171430",endColorstr="#3b337b",GradientType=1);
 
   header,
-  main,
-  footer {
+  main {
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -54,8 +54,12 @@ body {
     margin-top: 20px;
   }
 
-  footer {
-    margin-bottom: 20px;
+  main {
+    height: 80vh;
+    .page-title {
+      // margin-top: 18px;
+      font-size: 26px;
+    }
   }
 }
 

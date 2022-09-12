@@ -2,7 +2,7 @@
   <header class="header glass">
     <aside class="header-logo glass">
       <router-link to="/"
-        ><img src="@/assets/images/logo.png" alt="Logo"
+        ><img src="@/assets/images/logo.png" alt="Logo" draggable="false"
       /></router-link>
     </aside>
     <nav class="header-nav">
@@ -33,7 +33,7 @@
   </header>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: "HeaderComponent",
 };

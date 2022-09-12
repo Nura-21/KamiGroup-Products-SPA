@@ -1,4 +1,4 @@
-# kamigroup
+# kamigroup2
 
 ## Project setup
 ```
