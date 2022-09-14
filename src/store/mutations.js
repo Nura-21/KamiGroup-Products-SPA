@@ -9,4 +9,5 @@ export default {
   ADD_CITY: "ADD_CITY",
   DELETE_CITY: "DELETE_CITY",
   EDIT_CITY: "EDIT_CITY",
+  CHANGE_PAGE: "CHANGE_PAGE",
 };

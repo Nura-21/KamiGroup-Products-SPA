@@ -6,26 +6,29 @@
       @editCity="editCity"
       @deleteCity="callDelete"
     ></first-level-header>
-    <section class="city-list animate" v-if="!isLoading">
+    <section class="city-list animate delay-2" v-if="!isLoading">
       <city-card
         v-for="city of cities"
         :key="city.id"
         :city="city"
         @click.native="selectCity(city)"
-        :class="{ selected: selectedCity.id === city.id }"
+        :class="{ 'selected-city': selectedCity.id === city.id }"
       ></city-card>
     </section>
-    <loader v-else></loader>
+    <no-data v-if="cities.length === 0 && !isLoading"></no-data>
+    <loader v-if="isLoading"></loader>
   </section>
 </template>
 
 <script>
 import CityCard from "@/components/City/CityCard";
-import { Button } from "@/helpers/buttonClass";
+import NoData from "@/components/NoData";
+import Button from "@/helpers/buttonClass";
 import { mapActions, mapGetters } from "vuex";
+import { showToaster, confirmModal } from "@/helpers/toaster";
 export default {
   name: "CitiesList",
-  components: { CityCard },
+  components: { CityCard, NoData },
   data: function () {
     return {
       selectedCity: {},
@@ -55,15 +58,23 @@ export default {
       }
     },
     async callDelete() {
-      this.isLoading = true;
-      try {
-        const id = this.selectedCity.id;
-        this.unselectCity();
-        await this.deleteCity(id);
-      } catch (err) {
-        console.log(err);
+      const { value } = await confirmModal(
+        "Вы уверены, что хотите удалить данный город?",
+        "Подтвердить",
+        "Отменить"
+      );
+      if (value) {
+        this.isLoading = true;
+        try {
+          const id = this.selectedCity.id;
+          this.unselectCity();
+          await this.deleteCity(id);
+        } catch (err) {
+          console.log(err);
+        }
+        this.isLoading = false;
+        showToaster("success", "Город успешно удален");
       }
-      this.isLoading = false;
     },
     selectCity(city) {
       this.removeButtons();

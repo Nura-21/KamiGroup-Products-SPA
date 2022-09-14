@@ -1,23 +1,20 @@
 <template>
-  <div class="city-card">
-    <img
-      class="city-card-image"
-      :src="city.icon"
-      alt="City icon"
-      draggable="false"
-    />
-    <span class="city-card-name">{{ city.name }}</span>
-  </div>
+  <vs-card type="3">
+    <template #title>
+      <h3>{{ city.name }}</h3>
+    </template>
+    <template #img>
+      <img :src="city.icon" alt="" />
+    </template>
+    <template #text>
+      <p></p>
+    </template>
+  </vs-card>
 </template>
 
 <script>
 export default {
   name: "CityCard",
-  data: function () {
-    return {
-      isHovered: false,
-    };
-  },
   props: {
     city: {
       type: Object,

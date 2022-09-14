@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import HomePage from "../pages/HomePage";
+import NotFound from "../pages/NotFound";
 
 const routes = [
   {
@@ -19,12 +20,12 @@ const routes = [
   {
     path: "/products/create",
     name: "productCreate",
-    component: () => import("../pages/Product/ProductCreate"),
+    component: () => import("../pages/Product/ProductEditor"),
   },
   {
     path: "/products/:id/edit",
     name: "productEdit",
-    component: () => import("../pages/Product/ProductCreate"),
+    component: () => import("../pages/Product/ProductEditor"),
   },
   {
     path: "/cities",
@@ -43,6 +44,11 @@ const routes = [
       auth: true,
     },
     component: () => import("../pages/City/CityEditor"),
+  },
+  {
+    path: "*",
+    name: "notFound",
+    component: NotFound,
   },
 ];
 
